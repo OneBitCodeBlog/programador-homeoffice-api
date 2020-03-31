@@ -37,7 +37,7 @@ end
 
 group :test do
   gem "shoulda-matchers"
-  gem "rspec"
+  gem "rspec-rails"
 end
 
 group :development do
