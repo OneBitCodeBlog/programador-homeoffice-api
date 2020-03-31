@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_023804) do
+ActiveRecord::Schema.define(version: 2020_03_31_023902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "job_key_words", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "key_word_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_job_key_words_on_job_id"
+    t.index ["key_word_id"], name: "index_job_key_words_on_key_word_id"
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
