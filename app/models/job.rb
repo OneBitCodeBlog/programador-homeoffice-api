@@ -8,6 +8,7 @@ class Job < ApplicationRecord
   enum contract: {
     not_specified: 0,
     CLT: 1,
-    PJ: 2
+    PJ: 2,
+    CLT_or_PJ: 3
   }
 end

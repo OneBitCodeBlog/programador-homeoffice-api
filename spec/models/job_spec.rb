@@ -17,5 +17,6 @@ RSpec.describe Job do
     it { expect(Job.new(contract: 0)).to be_not_specified }
     it { expect(Job.new(contract: 1)).to be_CLT }
     it { expect(Job.new(contract: 2)).to be_PJ }
+    it { expect(Job.new(contract: 3)).to be_CLT_or_PJ }
   end
 end
