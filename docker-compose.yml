@@ -1,10 +1,12 @@
-version: '2'
+version: '3'
 
 services:
   postgres:
     image: 'postgres:9.5'
     volumes:
       - 'postgres:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_PASSWORD: root
 
   redis:
     image: 'redis:5'
@@ -16,23 +18,17 @@ services:
 
   app:
     depends_on:
-      - 'postgres'
-      - 'redis'
+      - postgres
+      - redis
     build: .
     command: bash start.sh
     ports:
       - '3000:3000'
     volumes:
-      - '.:/programador-homeoffice-api'
-    volumes_from:
-    - box
-
-  box:
-    image: busybox
-    volumes:
-      - /box
+      - '.:/programador-hhome-office-api'
+      - gems:/gems
 
 volumes:
   redis:
   postgres:
-  box:
+  gems:
