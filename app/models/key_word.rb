@@ -1,0 +1,2 @@
+class KeyWord < ApplicationRecord
+end
