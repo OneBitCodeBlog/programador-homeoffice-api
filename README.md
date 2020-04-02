@@ -6,7 +6,7 @@
 
 # Docker Container
 
-This project was done using docker container, the name is Nameprogramadorhomeofficeapi_app
+This project was done using docker container, the container name is Nameprogramadorhomeofficeapi_app
 
 ## Getting Started
 
