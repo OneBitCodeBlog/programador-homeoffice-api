@@ -48,7 +48,7 @@ $ docker-compose up --build
 Access:
 * [opportunities job here](http://0.0.0.0:3000/)
 
-## PS. if an error like that happens
+## PS. if an error like this happens
  * Listening on tcp://0.0.0.0:3000
 app_1       | bundler: failed to load command: puma (/gems/ruby/2.7.0/bin/puma)
 app_1       | Errno::ENOENT: No such file or directory @ rb_sysopen - tmp/pids/server.pid
@@ -64,7 +64,7 @@ app_1       |   /gems/ruby/2.7.0/bin/puma:23:in `load'
 app_1       |   /gems/ruby/2.7.0/bin/puma:23:in `<top (required)>'
 programadorhomeofficeapi_app_1 exited with code 1
 
-###Solucion:
+### Solucion:
 in a shell prompt you must create tmp/pips folder in your machine with:
 ```
 $ mkdir -p tmp/pids/
