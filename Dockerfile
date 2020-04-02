@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -qq -y --no-install-recommends \
 
 ENV RAILS_ENV development
 
-ENV INSTALL_PATH /programador-homeoffice-api
+ENV INSTALL_PATH /programador-home-office-api
 
 RUN mkdir -p $INSTALL_PATH
 
