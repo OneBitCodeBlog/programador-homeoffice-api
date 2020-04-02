@@ -64,7 +64,7 @@ app_1       |   /gems/ruby/2.7.0/bin/puma:23:in `load'
 app_1       |   /gems/ruby/2.7.0/bin/puma:23:in `<top (required)>'
 programadorhomeofficeapi_app_1 exited with code 1
 
-### Solucion:
+### Solution:
 in a shell prompt you must create tmp/pips folder in your machine with:
 ```
 $ mkdir -p tmp/pids/
