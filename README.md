@@ -2,11 +2,10 @@
 This project is a search engine for job opportunities for technology professionals.
 
 # Stack
-* stack
-    * docker
-    * API: Ruby On Rails
-    * web client: React ou VueJs
-    * Chatbot: DialogFlow
+* docker
+* API: Ruby On Rails
+* web client: React ou VueJs
+* Chatbot: DialogFlow
 
 *Search for opportunities job*
 
