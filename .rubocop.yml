@@ -1,0 +1,13 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - node_modules/**/*
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  StyleGuideCopsOnly: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
