@@ -3,7 +3,7 @@ FROM ruby:2.7.0
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
       build-essential nodejs libpq-dev
 
-ENV INSTALL_PATH /programador-homeoffice-api
+ENV INSTALL_PATH /programador-home-office-api
 
 RUN mkdir -p $INSTALL_PATH
 
