@@ -13,6 +13,7 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'redis', '~> 4.0'
 gem 'sidekiq'
+gem 'whenever'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
