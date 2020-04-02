@@ -1,0 +1,29 @@
+sites:
+  names: 'geek_hunter programathor stack_overflow'
+  
+  geek_hunter:
+    link: 'https://www.geekhunter.com.br/vagas?workType=remoto'
+    main_link: 'https://www.geekhunter.com.br'
+    link_search: 'h2 a[href]'
+    card_group: '.job'
+    title_search: 'h2 a'
+    amount_search: '.job-salary'
+    name: 'geek_hunter'
+
+  programathor:
+    link: 'https://programathor.com.br/jobs-city/remoto'
+    main_link: 'https://programathor.com.br'
+    link_search: 'a[href]'
+    card_group: ".cell-list:not(.min-height-180)"
+    title_search: '.cell-list-content h3'
+    amount_search: '.cell-list-content-icon span:nth-child(4)'
+    name: 'programathor'
+
+  stack_overflow:
+    link: 'https://stackoverflow.com/jobs/remote-developer-jobs'
+    main_link: 'https://stackoverflow.com'
+    link_search: '.s-link.stretched-link'
+    card_group: '.listResults .grid:not(.dismiss-overlay).grid:not(.fw-wrap).grid:not(.ai-center)'
+    title_search: '.s-link.stretched-link'
+    amount_search: '.fs-caption.fw-wrap .grid--cell:nth-child(3)'
+    name: 'stack_overflow'
