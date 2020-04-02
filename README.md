@@ -2,7 +2,7 @@
 
 *Search for opportunities job*
 
-> You can try here: *[DevOPs - Docker - Python Web Development with Flask]( [insert app url] )*.
+> You can try here: *[]( [insert app url] )*.
 
 # Docker Container
 
