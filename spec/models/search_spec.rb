@@ -1,9 +1,9 @@
-require "rails-helper"
+require "rails_helper"
 
 RSpec.describe Search do
   describe "associations" do
-    it { is_expected.to belongs_to(:user) }
-    it { is_expected.to belongs_to(:key_word) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:key_word) }
   end
 
   describe "validations" do
