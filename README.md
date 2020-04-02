@@ -46,7 +46,7 @@ run the app:
 $ docker-compose up --build
 ```
 Access:
-* [Windows](http://0.0.0.0:3000/)
+* [opportunities job here](http://0.0.0.0:3000/)
 
 ## PS. if an error like that happens
  * Listening on tcp://0.0.0.0:3000
