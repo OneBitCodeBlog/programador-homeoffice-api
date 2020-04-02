@@ -2,7 +2,7 @@
 
 *Search for opportunities job*
 
-> You can try here: *[]( [insert app url] )*.
+> You can try here: *insert app url( [insert app url] )*.
 
 # Docker Container
 
