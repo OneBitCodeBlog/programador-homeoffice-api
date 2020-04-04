@@ -9,6 +9,13 @@ class InterpretService
       session = result["session"].split('/')[-1]
       language = result["queryResult"]["parameters"]["linguagem"]
       CreateAlertService.new(session: session, language: language).call
+    when "list"
+      session = result["session"].split('/')[-1]
+      ListAlertService.new(session: session).call
+    when "delete"
+      session = result["session"].split('/')[-1]
+      tag = result["queryResult"]["parameters"]["IDAlarm"]
+      DeleteAlertService.new(session: session, tag: tag).call
     when "input.welcome"
       session = result["session"].split('/')[-1]
       name = result["queryResult"]["parameters"]["name"]
