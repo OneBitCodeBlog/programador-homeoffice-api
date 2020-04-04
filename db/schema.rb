@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_024104) do
+ActiveRecord::Schema.define(version: 2020_04_03_023247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,10 +56,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_024104) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-=======
     t.string "session_id"
->>>>>>> 167ace6894ee29a3dc2f16cc7b83439ce26d19ff
   end
 
   add_foreign_key "searches", "key_words"

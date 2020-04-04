@@ -37,7 +37,7 @@ $ cd programador-homeoffice-api
 
 gems install:
 ```
-$ docker-compose run --rm app bundle install && update
+$ docker-compose run --rm app bundle install
 ```
 RSpec install:
 ```
