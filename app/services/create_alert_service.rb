@@ -6,10 +6,17 @@ class CreateAlertService
   end
 
   def call
+    key_word = KeyWord.find_by(tag: @language)
+    if key_word.nil?
+      KeyWord.create!(
+        tag: @language
+      )
+      key_word = KeyWord.last    
+    end
     Search.create!(
       user: User.find_by(session_id: @session),
       alarm_rate: 1,
-      key_word: KeyWord.find_by(tag: @language)
+      key_word: key_word
     )
     response = {
       "fulfillmentText": "Vagas - Remoto",

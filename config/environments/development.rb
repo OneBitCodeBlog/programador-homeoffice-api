@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
-  config.hosts << "8e6a6c23.ngrok.io"
+  config.hosts << "019ea77c.ngrok.io"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
