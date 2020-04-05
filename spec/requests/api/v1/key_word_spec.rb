@@ -12,6 +12,8 @@ RSpec.describe "KeyWords", type: :request do
     parsed_response["data"].first["attributes"].keys
   end
   let(:json_attributes) { ["tag"] }
+  let(:job_attributes) { job.attributes }
+  let(:json_links) { %w[self first prev next last] }
 
   shared_examples "request endpoint" do
     it "responds with 200" do
@@ -24,6 +26,12 @@ RSpec.describe "KeyWords", type: :request do
     end
   end
 
+  shared_examples "pagination" do
+    it "shows links for pagination" do
+      expect(parsed_response["links"].keys).to match_array json_links
+    end
+  end
+
   describe "GET #index" do
     subject(:index) { get api_v1_key_words_url }
 
@@ -33,5 +41,6 @@ RSpec.describe "KeyWords", type: :request do
     end
 
     include_examples "request endpoint"
+    include_examples "pagination"
   end
 end
