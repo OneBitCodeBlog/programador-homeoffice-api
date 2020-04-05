@@ -10,6 +10,14 @@ module API
 
         render json: @jobs
       end
+
+      def show
+        @job = Job.find(params[:id])
+
+        render json: @job
+      rescue ActiveRecord::RecordNotFound
+        head :not_found
+      end
     end
   end
 end
