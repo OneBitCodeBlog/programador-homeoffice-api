@@ -12,6 +12,7 @@ gem "rack-cors"
 gem "rails", "~> 6.0.2", ">= 6.0.2.2"
 gem "redis", "~> 4.0"
 gem "active_model_serializers"
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
