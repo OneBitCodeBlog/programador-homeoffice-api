@@ -32,3 +32,4 @@ volumes:
   redis:
   postgres:
   gems:
+    routes.rb:12
