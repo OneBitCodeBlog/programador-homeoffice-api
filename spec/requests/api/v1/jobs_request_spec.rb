@@ -20,6 +20,17 @@ RSpec.describe "Jobs", type: :request do
     ]
   end
 
+  shared_examples "request endpoint" do
+    it "responds with 200" do
+      expect(response).to have_http_status :ok
+    end
+
+    it "responds with json" do
+      expect(parsed_json_attributes)
+        .to match_array json_attributes
+    end
+  end
+
   describe "GET #index" do
     subject(:index) { get api_v1_jobs_url }
 
@@ -28,15 +39,8 @@ RSpec.describe "Jobs", type: :request do
       index
     end
 
-    shared_examples "request index" do
-      it "responds with 200" do
-        expect(response).to have_http_status :ok
-      end
-
-      it "responds with json" do
-        expect(parsed_response["data"].first["attributes"].keys)
-          .to match_array json_attributes
-      end
+    let(:parsed_json_attributes) do
+      parsed_response["data"].first["attributes"].keys
     end
 
     shared_examples "pagination" do
@@ -48,7 +52,7 @@ RSpec.describe "Jobs", type: :request do
     let(:job_attributes) { job.attributes }
     let(:json_links) { %w[self first prev next last] }
 
-    include_examples "request index"
+    include_examples "request endpoint"
     include_examples "pagination"
 
     context "with pagination params" do
@@ -56,7 +60,7 @@ RSpec.describe "Jobs", type: :request do
         get api_v1_jobs_url, params: { page: { number: 1, size: 1 } }
       end
 
-      include_examples "request index"
+      include_examples "request endpoint"
       include_examples "pagination"
     end
   end
@@ -70,20 +74,16 @@ RSpec.describe "Jobs", type: :request do
     end
 
     let(:job_id) { job.id }
-
-    it "responds with 200" do
-      expect(response).to have_http_status :ok
+    let(:parsed_json_attributes) do
+      parsed_response["data"]["attributes"].keys
     end
 
-    it "responds with json" do
-      expect(parsed_response["data"]["attributes"].keys)
-        .to match_array json_attributes
-    end
+    include_examples "request endpoint"
 
     context "without parameter id" do
       let(:job_id) { 1234 }
 
-      it "returns 404" do
+      it "responds with 404" do
         expect(response).to have_http_status :not_found
       end
     end
