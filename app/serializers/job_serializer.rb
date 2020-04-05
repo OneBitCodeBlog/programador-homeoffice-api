@@ -3,5 +3,5 @@ class JobSerializer < ActiveModel::Serializer
              :job_link, :salary, :company_name, :published_date
 
   has_many :job_key_words
-  has_many :key_words
+  has_many :key_words, through: :job_key_words
 end
