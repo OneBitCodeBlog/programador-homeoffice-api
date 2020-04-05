@@ -2,7 +2,11 @@ module API
   module V1
     class JobsController < ApplicationController
       def index
-        @jobs = Job.all
+        page = params[:page]
+        page_number = page.try(:[], :number)
+        per_page = page.try(:[], :size)
+
+        @jobs = Job.all.page(page_number).per(per_page)
 
         render json: @jobs
       end
