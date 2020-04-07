@@ -1,16 +1,54 @@
-# README
+# Programador Home Office API
+Este é um projeto desenvolvido durante o Week Code pelos alunos do Bootcamp Super Full Stack do OneBitCode.
 
-# Endpoints - API
+A ideia central do projeto é ajudar programadores (futuramente outras áreas também) a encontrar trabalhos remotos de forma mais fácil, centralizando as vagas de múltiplas plataformas em um site simples com chatbot e alarmes periódicos de novas vagas.
 
-- `GET #index /api/v1/jobs` - Este irá retornar todos os Jobs do banco de dados.
-- `GET #index /api/v1/jobs?page[number]=?&page[size]=?` -  Este endpoint serve para paginação, podendo escolher a quantidade que a página deve ter de items `page[size]` e qual a página você quer acessar `page[number]`.
-- `GET #show /api/v1/jobs/:id` - Enviando o id do job que quiserem podem acessar diretamente apenas as informações do job desejado.
-- `GET #index /api/v1/search_jobs/:tag` - Este irá retornar todos os Jobs do banco de dados através de uma pesquisa pela tag da palavra-chave.
-- `GET #index /api/v1/search_jobs/:tag?page[number]=?&page[size]=?` - Este endpoint serve para paginação da pesquisa de jobs pela palavra-chave, podendo escolher a quantidade que a página deve ter de items `page[size]` e qual a página você quer acessar `page[number]`.
+## Instalação
+```
+git clone https://github.com/OneBitCodeBlog/programador-homeoffice-api.git
+
+cd programador-homeoffice-api/
+
+docker-compose build
+
+docker-compose run --rm app bundle exec bundle install
+
+docker-compose run --rm app bundle exec rails db:migrate
+
+docker-compose up --build
+```
+Caso ocorra um erro semelhante a esse:
+```bash
+app_1_1b3103ab10ef | Errno::ENOENT: No such file or directory @ rb_sysopen - tmp/pids/server.pid
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/launcher.rb:216:in `initialize'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/launcher.rb:216:in `open'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/launcher.rb:216:in `write_pid'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/launcher.rb:105:in `write_state'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/single.rb:103:in `run'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/launcher.rb:172:in `run'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/lib/puma/cli.rb:80:in `run'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/gems/puma-4.3.3/bin/puma:10:in `<top (required)>'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/bin/puma:23:in `load'
+app_1_1b3103ab10ef |   /gems/ruby/2.7.0/bin/puma:23:in `<top (required)>'
+```
+Basta criar a seguinte pasta dentro do projeto:
+```bash
+mkdir tmp/pids
+```
+## API
+`GET #index /api/v1/jobs`: retornar todos os Jobs do banco de dados.
+
+`GET #index /api/v1/jobs?page[number]=?&page[size]=?`: este endpoint serve para paginação, podendo escolher a quantidade que a página deve ter de items page[size] e qual a página você quer acessar page[number].
+
+`GET #show /api/v1/jobs/:id`: enviando o id do job que quiserem podem acessar diretamente apenas as informações do job desejado.
+
+`GET #index /api/v1/search_jobs/:tag` - retornar todos os Jobs do banco de dados com a key_word :tag.
+
+`GET #index /api/v1/search_jobs/:tag?page[number]=?&page[size]=?`: este endpoint serve para paginação, podendo escolher a quantidade que a página deve ter de items page[size] e qual a página você quer acessar page[number].
 
 A estrutura do JSON ficou assim:
 
-jobs#index - `/api/v1/jobs?page[number]=1&page[size]=5`
+`#index - /api/v1/jobs?page[number]=1&page[size]=5`
 ```json
 {
     "data": [
@@ -149,9 +187,7 @@ jobs#index - `/api/v1/jobs?page[number]=1&page[size]=5`
     }
 }
 ```
-
-jobs#show `/api/v1/jobs/3`
-
+E a `#show /api/v1/jobs/3`
 ```json
 {
     "data": {
@@ -181,9 +217,71 @@ jobs#show `/api/v1/jobs/3`
     }
 }
 ```
-
-search_jobs#index `/api/v1/search_jobs/quidem?page[number]=1&page[size]=5`
-
+`GET #index /api/v1/search_jobs/quidem`
+```json
+{
+    "data": [
+        {
+            "id": "90",
+            "type": "jobs",
+            "attributes": {
+                "title": "Ab rem quia sit.",
+                "description": "In libero quaerat. Labore doloribus rerum. Sit et ea.",
+                "contract": "not_specified",
+                "job-link": "http://kautzer.co/betty_bauch",
+                "salary": null,
+                "company-name": null,
+                "published-date": "2020-04-07"
+            },
+            "relationships": {
+                "key-words": {
+                    "data": [
+                        {
+                            "id": 78,
+                            "tag": "quidem",
+                            "created-at": "2020-04-07T01:38:41.129Z",
+                            "updated-at": "2020-04-07T01:38:41.129Z"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "91",
+            "type": "jobs",
+            "attributes": {
+                "title": "Velit magnam ducimus rerum.",
+                "description": "Necessitatibus nostrum vel. Ad dolor laboriosam. Et et voluptate.",
+                "contract": "not_specified",
+                "job-link": "http://west.io/nana",
+                "salary": null,
+                "company-name": null,
+                "published-date": "2020-04-07"
+            },
+            "relationships": {
+                "key-words": {
+                    "data": [
+                        {
+                            "id": 78,
+                            "tag": "quidem",
+                            "created-at": "2020-04-07T01:38:41.129Z",
+                            "updated-at": "2020-04-07T01:38:41.129Z"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "links": {
+        "self": "http://localhost:3000/api/v1/search_jobs/quidem?page%5Bnumber%5D=1&page%5Bsize%5D=25",
+        "first": "http://localhost:3000/api/v1/search_jobs/quidem?page%5Bnumber%5D=1&page%5Bsize%5D=25",
+        "prev": null,
+        "next": null,
+        "last": "http://localhost:3000/api/v1/search_jobs/quidem?page%5Bnumber%5D=1&page%5Bsize%5D=25"
+    }
+}
+```
+`#index -/api/v1/search_jobs/quidem?page[number]=1&page[size]=5`
 ```json
 {
     "data": [
