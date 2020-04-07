@@ -15,13 +15,6 @@ module API
 
         render json: @key_words, include: [:jobs]
       end
-
-      def show
-        @key_word = KeyWord.find(params[:id])
-        render json: @key_word
-      rescue ActiveRecord::RecordNotFound
-        head :not_found
-      end
     end
   end
 end
