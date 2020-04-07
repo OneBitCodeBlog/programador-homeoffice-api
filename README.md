@@ -2,14 +2,15 @@
 
 # Endpoints - API
 
-`GET #index /api/v1/jobs` - Este irá retornar todos os Jobs do banco de dados.
-`GET #index /api/v1/jobs?page[number]=?&page[size]=?` -  Este endpoint serve para paginação, podendo escolher a quantidade que a página deve ter de items `page[size]` e qual a página você quer acessar `page[number]`.
-`GET #show /api/v1/jobs/:id` - Enviando o id do job que quiserem podem acessar diretamente apenas as informações do job desejado.
-`GET #index /api/v1/search_jobs/:tag` - Este irá retornar todos os Jobs do banco de dados através de uma pesquisa pela tag da palavra-chave.
-`GET #index /api/v1/search_jobs/:tag?page[number]=?&page[size]=?` - Este endpoint serve para paginação da pesquisa de jobs pela palavra-chave, podendo escolher a quantidade que a página deve ter de items `page[size]` e qual a página você quer acessar `page[number]`.
+- `GET #index /api/v1/jobs` - Este irá retornar todos os Jobs do banco de dados.
+- `GET #index /api/v1/jobs?page[number]=?&page[size]=?` -  Este endpoint serve para paginação, podendo escolher a quantidade que a página deve ter de items `page[size]` e qual a página você quer acessar `page[number]`.
+- `GET #show /api/v1/jobs/:id` - Enviando o id do job que quiserem podem acessar diretamente apenas as informações do job desejado.
+- `GET #index /api/v1/search_jobs/:tag` - Este irá retornar todos os Jobs do banco de dados através de uma pesquisa pela tag da palavra-chave.
+- `GET #index /api/v1/search_jobs/:tag?page[number]=?&page[size]=?` - Este endpoint serve para paginação da pesquisa de jobs pela palavra-chave, podendo escolher a quantidade que a página deve ter de items `page[size]` e qual a página você quer acessar `page[number]`.
 
 A estrutura do JSON ficou assim:
-#index - `/api/v1/jobs?page[number]=1&page[size]=5`
+
+jobs#index - `/api/v1/jobs?page[number]=1&page[size]=5`
 ```json
 {
     "data": [
@@ -149,7 +150,7 @@ A estrutura do JSON ficou assim:
 }
 ```
 
-E a #show `/api/v1/jobs/3`
+jobs#show `/api/v1/jobs/3`
 
 ```json
 {
@@ -181,7 +182,8 @@ E a #show `/api/v1/jobs/3`
 }
 ```
 
-`#index -/api/v1/search_jobs/quidem?page[number]=1&page[size]=5`
+search_jobs#index `/api/v1/search_jobs/quidem?page[number]=1&page[size]=5`
+
 ```json
 {
     "data": [
