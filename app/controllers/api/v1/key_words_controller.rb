@@ -7,13 +7,13 @@ module API
         per_page = page.try(:[], :size)
         tag = params[:tag] || ""
 
-        @key_words = Job.includes(:job_key_words)
+        @jobs = Job.includes(:job_key_words)
           .includes(:key_words)
           .where("key_words.tag = ?", tag)
           .references(:key_words)
           .page(page_number).per(per_page)
 
-        render json: @key_words, include: [:jobs]
+        render json: @jobs, include: [:jobs]
       end
     end
   end
