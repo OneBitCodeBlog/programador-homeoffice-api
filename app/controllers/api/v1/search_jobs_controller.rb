@@ -1,6 +1,6 @@
 module API
   module V1
-    class KeyWordsController < ApplicationController
+    class SearchJobsController < ApplicationController
       def index
         page = params[:page]
         page_number = page.try(:[], :number)
