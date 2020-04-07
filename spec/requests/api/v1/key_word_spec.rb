@@ -25,17 +25,6 @@ RSpec.describe "KeyWords", type: :request do
     ]
   end
 
-  shared_examples "request endpoint" do
-    it "responds with 200" do
-      expect(response).to have_http_status :ok
-    end
-
-    it "responds with json" do
-      expect(parsed_json_attributes)
-        .to match_array json_attributes
-    end
-  end
-
   describe "GET #index" do
     subject(:index) { get api_v1_path(key_word.tag) }
 
