@@ -1,11 +1,13 @@
 require "rails_helper"
 
-RSpec.describe "KeyWords", type: :request do
+RSpec.describe "SearchJobs", type: :request do
   let(:key_word) do
     create(:key_word).tap do |key_word|
       create_list(:job_key_word, 3, key_word: key_word)
     end
   end
+
+  let(:key) { create(:key_word) }
 
   let(:key_word_attributes) { key_word.attributes }
   let(:json_links) { %w[self first prev next last] }
@@ -26,7 +28,7 @@ RSpec.describe "KeyWords", type: :request do
   end
 
   describe "GET #index" do
-    subject(:index) { get api_v1_path(key_word.tag) }
+    subject(:index) { get api_v1_search_jobs_path(key_word.tag) }
 
     before do
       key_word
