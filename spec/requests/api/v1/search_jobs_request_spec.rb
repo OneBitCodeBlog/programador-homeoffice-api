@@ -7,8 +7,6 @@ RSpec.describe "SearchJobs", type: :request do
     end
   end
 
-  let(:key) { create(:key_word) }
-
   let(:key_word_attributes) { key_word.attributes }
   let(:json_links) { %w[self first prev next last] }
   let(:parsed_response) { JSON.parse(response.body) }
